@@ -62,5 +62,16 @@ public abstract class Display {
 		g.drawImage(buffer, 0, 0, null);
 	
 	}
+	static public void pacmanIsOn() {
+		if(Display.foodIsOn(curCoord)) {
+			SCORES--;
+			if(SCORES == 0) {
+				running = false;
+				win = true;
+				return;
+			}
+			Display.delFoodAt(curCoord);
+		}
+	}
    
 }
