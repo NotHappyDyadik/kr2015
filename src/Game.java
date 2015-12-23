@@ -10,12 +10,13 @@ import javax.swing.JFrame;
 
 public class Game extends Canvas implements Runnable,KeyListener  {
 	private boolean isRunning = false;
-	public static final int WIDTH=480,HEIGTH=400;
+	public static final int WIDTH=700	,HEIGTH=600;
 	public static final String Title = "Pac-man";
 	
 	
 	private Thread thread;
 	public static Player player;
+	public static Level level;
 	
 	public Game(){
 		Dimension dimension = new Dimension(Game.WIDTH,Game.HEIGTH);
@@ -24,6 +25,7 @@ public class Game extends Canvas implements Runnable,KeyListener  {
 		setMaximumSize(dimension);
 		addKeyListener(this);
 		player = new Player(Game.WIDTH/2,Game.HEIGTH/2);
+		level =new Level("/map/map.png");
 	}
 	
 	
@@ -67,6 +69,7 @@ public class Game extends Canvas implements Runnable,KeyListener  {
 	   g.setColor(Color.black);
 	   g.fillRect(0, 0, Game.WIDTH, Game.HEIGTH);
 	   player.render(g);
+	   level.render(g);
 	   g.dispose();
 	   bs.show();
 	}
@@ -79,7 +82,7 @@ public class Game extends Canvas implements Runnable,KeyListener  {
 		int fps=0;
 		double timer = System.currentTimeMillis();
 		long lastTime = System.nanoTime();
-		double targetTick = 120.0;
+		double targetTick = 1200.0;
 		double delta = 0;
 		double ns =  1000000000/targetTick;
 		
