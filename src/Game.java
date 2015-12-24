@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 
 public class Game extends Canvas implements Runnable,KeyListener  {
 	private boolean isRunning = false;
-	public static final int WIDTH=700	,HEIGTH=600;
+	public static final int WIDTH=1024	,HEIGTH=700;
 	public static final String Title = "Pac-man";
 	
 	
@@ -54,6 +54,7 @@ public class Game extends Canvas implements Runnable,KeyListener  {
 	private void tick(){
 		//System.out.println("Working");
 		player.tick();
+		level.tick();
 		
 	}
 	
@@ -82,7 +83,7 @@ public class Game extends Canvas implements Runnable,KeyListener  {
 		int fps=0;
 		double timer = System.currentTimeMillis();
 		long lastTime = System.nanoTime();
-		double targetTick = 1200.0;
+		double targetTick = 120.0;
 		double delta = 0;
 		double ns =  1000000000/targetTick;
 		
