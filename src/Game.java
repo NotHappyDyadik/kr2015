@@ -63,7 +63,7 @@ public class Game extends JPanel{
 		ballCount-=1;
 		if(ballCount<=0) lost=true;
 		ball.SetVector(5,5);
-		ball.setPosition(gameField.width, gameField.height);
+		ball.setPosition(gameField.width/2, gameField.height/2);
 		player.setX((int) ((gameField.getWidth()-Player.standartPlayerWidth)/2));
 		player.setY( gameField.height-Player.standartPlayerWidth);
 		repaint();
